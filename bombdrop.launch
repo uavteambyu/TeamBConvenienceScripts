@@ -1,0 +1,28 @@
+<!-- This is a launch file that runs the bare minimum requirements to get -->
+<!-- nodes running for the bomb drop for a fixed-wing aircraft -->
+
+<launch>
+  <arg name="mav_name"            default="fixedwing"/>
+
+
+  <group ns="$(arg mav_name)">
+    <!-- ROS interface rosflight_io -->
+    <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen" port="/dev/ttyUSB1" >
+      <param name="udp" value="false"/>
+    </node>
+
+    <node name="autopilot" pkg="rosplane" type="rosplane_controller" output="screen">
+      <!-- <remap from="state" to="truth"/> -->
+    </node>
+
+    <node name="estimator" pkg="rosplane" type="rosplane_estimator" output="screen"/>
+
+    <node name="pathfollower" pkg="rosplane" type="rosplane_path_follower" output="screen">
+       <!-- <remap from="state" to="truth"/> -->
+    </node>
+    
+    <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen" port="/dev/ttyUSB0" />
+    	
+
+  </group>
+</launch>
