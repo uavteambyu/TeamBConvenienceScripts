@@ -1,0 +1,5 @@
+set -x
+
+roslaunch rosplane_sim rosflight_sil.launch
+roslaunch ros_groundstation gs.launch
+./load_params_cal.bash

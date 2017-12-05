@@ -1,0 +1,3 @@
+set -x 
+
+roslaunch waypoint_planning waypoint_planning.launch
