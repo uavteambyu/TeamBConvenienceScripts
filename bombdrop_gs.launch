@@ -10,7 +10,8 @@
     <arg name="bag_path" default="/home/team2/groundstation_bags"/>
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
-    <rosparam command="load" file="$(find rosplane_sim)/params/$(arg mav_name).yaml" ns="$(arg mav_name)"/>
+	<!-- PID gains and related params -->
+    <rosparam command="load" file="./strato_tune1.yaml" />
     <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
 
     <node pkg="rosbag" type="play" name="player" output="screen" args="-qa --clock $(arg bag_path)/$(arg bag_name).bag"/>
