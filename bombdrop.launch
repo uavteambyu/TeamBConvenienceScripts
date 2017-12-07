@@ -9,6 +9,7 @@
     <!-- ROS interface rosflight_io -->
     <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen">
       <param name="udp" value="false"/>
+      <param name="port" value="/dev/ttyUSB1"/>
     </node>
 
     <node name="autopilot" pkg="rosplane" type="rosplane_controller" output="screen">
@@ -21,7 +22,9 @@
        <!-- <remap from="state" to="truth"/> -->
     </node>
     
-    <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen"/>
+    <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen">
+        <param name="port" value="/dev/ttyUSB0"/>
+    </node>
     	
 
   </group>
