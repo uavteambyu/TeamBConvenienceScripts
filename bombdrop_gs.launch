@@ -11,7 +11,7 @@
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
 	<!-- PID gains and related params -->
-    <rosparam command="load" file="./strato_tune1.yaml" />
+    <rosparam command="load" file="strato_tune1.yaml" />
     <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
 
     <node pkg="rosbag" type="play" name="player" output="screen" args="-qa --clock $(arg bag_path)/$(arg bag_name).bag"/>
