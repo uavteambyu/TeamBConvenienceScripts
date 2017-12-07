@@ -1,0 +1,23 @@
+<!-- This is a launch file that runs the groundstation and other tools for the bomb drop -->
+
+<launch>
+  <arg name="mav_name"            default="fixedwing"/>
+
+  <group ns="$(arg mav_name)">
+
+    <arg name="bag_name" default="flight"/>
+
+    <arg name="bag_path" default="/home/team2/groundstation_bags"/>
+
+    <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
+    <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
+
+    <node pkg="rosbag" type="play" name="player" output="screen" args="-q --clock $(arg bag_path)/$(arg bag_name).bag"/>
+  
+    <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
+    <!-- <node name="tuning" pkg="rosplane_utils" type="tuningmode" output="screen" /> -->
+    
+  </group>
+  
+</launch>
+
