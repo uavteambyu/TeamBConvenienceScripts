@@ -7,7 +7,7 @@
 
   <group ns="$(arg mav_name)">
     <!-- ROS interface rosflight_io -->
-    <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen" port="/dev/ttyUSB1" >
+    <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen">
       <param name="udp" value="false"/>
     </node>
 
@@ -21,8 +21,12 @@
        <!-- <remap from="state" to="truth"/> -->
     </node>
     
-    <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen" port="/dev/ttyUSB0" />
+    <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen"/>
     	
 
   </group>
 </launch>
+
+
+<!--port="/dev/ttyUSB1"-->
+<!-- port="/dev/ttyUSB0" -->
