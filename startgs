@@ -4,7 +4,7 @@
 set -x
 
 # connect to odroid on plane - IP address may need to change
-export ROS_MASTER_URI=http://192.168.1.100
+export ROS_MASTER_URI=http://192.168.1.100:11311
 # groundstation, bag, waypoint planner:
 roslaunch bombdrop_gs.launch
 
