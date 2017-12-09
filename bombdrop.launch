@@ -25,6 +25,7 @@
     <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen">
         <param name="port" value="/dev/ttyUSB0"/>
     </node>
+
     	
 
   </group>
