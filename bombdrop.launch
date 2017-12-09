@@ -21,7 +21,9 @@
     <node name="pathfollower" pkg="rosplane" type="rosplane_path_follower" output="screen">
        <!-- <remap from="state" to="truth"/> -->
     </node>
-    
+    <node name="pathmanager" pkg="rosplane" type="rosplane_path_manager" output="screen">
+        <!--  <remap from="state" to="truth"/> -->
+     </node>
     <node name="gps_node" pkg="rosflight_utils" type="gps" output="screen">
         <param name="port" value="/dev/ttyUSB0"/>
     </node>
