@@ -26,7 +26,7 @@
         <param name="port" value="/dev/ttyUSB0"/>
     </node>
 
-    	
+    <node pkg="rosbag" type="record" name="record1" output="screen" args="-qa -o $(arg bag_path)/$(arg bag_name)"/>
 
   </group>
 </launch>
