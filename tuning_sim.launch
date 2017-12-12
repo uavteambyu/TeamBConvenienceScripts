@@ -18,8 +18,6 @@
     <arg name="mav_name"            value="$(arg mav_name)" />
     <arg name="model"               value="$(find rosplane_sim)/xacro/$(arg mav_name).xacro" />
   </include>
-  <node name="bomb_drop" pkg="bomb_drop" type="bomb_drop_node" output="screen"/>
-  <node name="wind_estimator" pkg="wind_estimator" type="wind_estimator_node" output="screen"/>
 
   <group ns="$(arg mav_name)">
 
