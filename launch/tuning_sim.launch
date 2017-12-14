@@ -48,12 +48,11 @@
       <remap from="state" to="truth"/>
     </node>
 
-    <node name="pathplanner" pkg="rosplane" type="rosplane_path_planner"/>
-
+    <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
 	<!-- PID gains and related params -->
-    <rosparam command="load" file="bixler.yaml" />
+    <rosparam command="load" file="params/strato_tune1.yaml" />
     <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
     <node name="param_configure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
 

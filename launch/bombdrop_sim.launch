@@ -43,19 +43,15 @@
        <remap from="state" to="truth"/>
     </node>
 
-    <!-- <node name="current_path_publisher" pkg="rostopic" type="rostopic"
-      args="pub current_path rosplane_msgs/Current_Path '0' '15.0'  '[0.0, 0.0, -100.0]'  '[1.0, 0.0, 0.0]'  '[0.0, 0.0, -100.0]'  '100.0' '1'"/> -->
-
     <node name="pathmanager" pkg="rosplane" type="rosplane_path_manager" output="screen">
       <remap from="state" to="truth"/>
     </node>
 
-    <node name="pathplanner" pkg="rosplane" type="rosplane_path_planner"/>
-
+    <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
 	<!-- PID gains and related params -->
-    <rosparam command="load" file="bixler.yaml" />
+    <rosparam command="load" file="params/strato_tune1.yaml" />
     <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
     <node name="param_configure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
 
