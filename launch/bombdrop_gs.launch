@@ -1,0 +1,28 @@
+<!-- This is a launch file that runs the groundstation and other tools for the bomb drop -->
+
+<launch>
+  <arg name="mav_name"            default="fixedwing"/>
+  <node name="bomb_drop" pkg="bomb_drop" type="bomb_drop_node" output="screen"/>
+  <node name="wind_estimator" pkg="wind_estimator" type="wind_estimator_node" output="screen"/>
+
+  <group ns="$(arg mav_name)">
+
+    <arg name="bag_name" default="flight"/>
+
+    <arg name="bag_path" default="/home/team2/groundstation_bags"/>
+
+    <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
+	<!-- PID gains and related params -->
+    <rosparam command="load" file="strato_tune1.yaml" />
+    <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
+
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-qa -o $(arg bag_path)/$(arg bag_name)"/>
+  
+    <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
+    <!-- <node name="tuning" pkg="rosplane_utils" type="tuningmode" output="screen" /> -->
+    <node name="param_configure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
+
+  </group>
+  
+</launch>
+
