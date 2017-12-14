@@ -13,7 +13,7 @@
 	<!-- PID gains and related params -->
     <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
 
-    <node pkg="rosbag" type="record" name="record" output="screen" args="-qa -o $(arg bag_path)/$(arg bag_name)"/>
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-a -o $(arg bag_path)/$(arg bag_name)"/>
 
   </group>
   

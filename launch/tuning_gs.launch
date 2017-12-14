@@ -11,14 +11,16 @@
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
 	<!-- PID gains and related params -->
-    <rosparam command="load" file="params/strato_tune1.yaml" />
-    <node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />
 
-    <node pkg="rosbag" type="record" name="record" output="screen" args="-qa -o $(arg bag_path)/$(arg bag_name)"/>
+    <!--<rosparam command="load" file="params/strato_tune1.yaml" />-->
+    <!--<node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />-->
+
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-a -o $(arg bag_path)/$(arg bag_name)"/>
   
-    <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
-    <!-- <node name="tuning" pkg="rosplane_utils" type="tuningmode" output="screen" /> -->
-    <node name="param_configure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
+    <!--<node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />-->
+    <!--<node name="tuning" pkg="tuning_mode" type="TuningMode" output="screen" />-->
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--standalone TuningMode" />
+    <!--<node name="param_configure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>-->
 
   </group>
   
