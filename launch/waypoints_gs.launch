@@ -9,7 +9,7 @@
 
     <arg name="bag_path" default="/home/team2/groundstation_bags"/>
 
-    <node pkg="rosbag" type="record" name="record" output="screen" args="-qa -o $(arg bag_path)/$(arg bag_name)"/>
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-a -o $(arg bag_path)/$(arg bag_name)"/>
   
     <node name="waypoint_planning" pkg="waypoint_planning" type="waypoint_planning" output="screen" />
 
