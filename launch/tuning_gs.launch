@@ -11,6 +11,7 @@
 
     <rosparam command="load" file="$(find ros_groundstation)/params/fixedwing_topics.yaml"/>
 	<!-- PID gains and related params -->
+
     <!--<rosparam command="load" file="params/strato_tune1.yaml" />-->
     <!--<node name="groundstation" pkg="ros_groundstation" type="ros_groundstation" output="screen" />-->
 
