@@ -8,7 +8,7 @@
   <group ns="$(arg mav_name)">
     <arg name="bag_name" default="flight"/>
 
-    <arg name="bag_path" default="/home/team2/groundstation_bags"/>
+    <arg name="bag_path" default="/home/odroid/groundstation_bags"/>
     <!-- ROS interface rosflight_io -->
     <node name="rosflight_io" pkg="rosflight" type="rosflight_io" output="screen">
       <param name="udp" value="false"/>
